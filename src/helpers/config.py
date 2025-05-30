@@ -5,6 +5,9 @@ class Settings(BaseSettings):
    APP_NAME: str
    APP_VERSION: str
 
+   FILE_TYPES:list
+
+   GENERATION_BACKEND: str
    GROQ_API_KEY: str
 
    LLM_GENERATION_MODEL: str
