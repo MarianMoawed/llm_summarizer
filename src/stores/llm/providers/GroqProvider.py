@@ -1,7 +1,7 @@
-from LLMInterface import LLMInterface
+from stores.llm.LLMInterface import LLMInterface
 from groq import Groq
 import logging
-from LLMEnums import GroqEnums
+from stores.llm.LLMEnums import GroqEnums
 
 
 class GroqProvider(LLMInterface):
@@ -14,7 +14,7 @@ class GroqProvider(LLMInterface):
        
        self.logger = logging.getLogger(__name__)
 
-       self.client= Groq(api_key)
+       self.client= Groq(api_key=api_key)
 
     def process_text(self, text: str) -> str:
         return text[:self.default_input_max_characters].strip()
@@ -37,8 +37,8 @@ class GroqProvider(LLMInterface):
         response = self.client.chat.completions.create(
             model= self.generation_model_name,
             messages =[
-                        {"role":GroqEnums.SYSTEM,"content":chat_history},
-                        {"role": GroqEnums.USER, "content": self.process_text(prompt)}
+                        {"role":GroqEnums.SYSTEM.value,"content":chat_history},
+                        {"role": GroqEnums.USER.value, "content": self.process_text(prompt)}
                       ] ,
             max_tokens= max_tokens if max_tokens is not None else self.max_tokens,
             temperature=temperature if temperature is not None else self.temperature
