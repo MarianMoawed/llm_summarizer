@@ -16,6 +16,11 @@ class Settings(BaseSettings):
    LLM_DEFAULT_MAX_TOKENS: int
    DEFAULT_INPUT_MAX_CHARACTERS: int
 
+  
+
+   DB_URL:str
+   DB_NAME : str
+
    class Config:
         env_file = ".env"
 
