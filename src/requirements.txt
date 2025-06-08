@@ -4,3 +4,6 @@ pydantic-settings==2.9.1
 python-multipart==0.0.20
 groq==0.25.0
 aiofiles==24.1.0
+motor==3.7.1
+langchain==0.3.25
+langchain-community==0.3.24
